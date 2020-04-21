@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option go_package = ".;greeter";
+
+import "third_party/googleapis/google/api/annotations.proto";
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+      option (google.api.http) = {
+          get: "/greeter/{name}"
+          response_body: "*"
+      };
+  }
+
+  // Sends another greeting
+  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {
+      option (google.api.http) = {
+          post: "/greeter"
+          body: "*"
+      };
+  }
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
