@@ -2,7 +2,13 @@ syntax = "proto3";
 
 option go_package = ".;greeter";
 
-import "third_party/googleapis/google/api/annotations.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    schemes: HTTP;
+    schemes: HTTPS;
+};
 
 // The greeting service definition.
 service Greeter {

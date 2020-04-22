@@ -6,5 +6,6 @@ import (
 
 func main() {
 	server.ServerAddr = ":8080"
+	server.SwaggerDir = "proto/greeter"
 	server.Run()
 }
